@@ -4,6 +4,6 @@ from .models import User
 
 # Create your views here.
 
-class UserViewset(viewsets.ModelViewSet):
+class UserViewset(viewsets.ReadOnlyModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
