@@ -1,5 +1,4 @@
-from django.db.models import Count
-from rest_framework import viewsets
+from rest_framework import viewsets, filters
 from .serializers import ProductSerializer
 from .models import Product
 
@@ -9,7 +8,10 @@ class ProductViewset(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
-    def get_queryset(self):
-        return Product.objects.annotate(
-            participants = Count('funding')
-        )
+    filter_backends = [filters.OrderingFilter, filters.SearchFilter]
+
+    filter_fields = ['created_at', 'total_fund']
+    search_fields = ['title', 'description']
+    ordering = ['id']
+    ordering_fields = ['created_at', 'total_fund']
+
