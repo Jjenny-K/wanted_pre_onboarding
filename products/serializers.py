@@ -42,8 +42,8 @@ class FundingSerializer(serializers.ModelSerializer):
 
         product_id = self.data['product']
 
-        participants = Funding.objects.filter(product_id=product_id).count()
+        total_fund = Product.objects.filter(id=product_id).get().total_fund
         fund_per_once = Product.objects.filter(id=product_id).get().fund_per_once
-        total_fund = participants * fund_per_once
+        total_fund += fund_per_once
 
         Product.objects.filter(id=product_id).update(total_fund=total_fund)
