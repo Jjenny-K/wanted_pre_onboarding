@@ -1,5 +1,9 @@
 # Created by https://www.toptal.com/developers/gitignore/api/python,django,pycharm,windows
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,django,pycharm,windows
+# And additional points
+
+# Django settings.py SECRET_KEY file
+secrets.json
 
 ### Django ###
 *.log
