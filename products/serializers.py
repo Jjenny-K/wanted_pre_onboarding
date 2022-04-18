@@ -36,6 +36,9 @@ class FundingSerializer(serializers.ModelSerializer):
         model = Funding
         fields = '__all__'
 
+    # 유저가 상품 펀딩시, 총 펀딩 금액(total_fund) 수정 로직 추가
+    # 펀딩 저장 로직 수정 필요
+    # 총 펀딩 금액 수정시 예외 처리 필요
     def save(self):
         # user = self.validated_data['user']
         # product = self.validated_data['product']
